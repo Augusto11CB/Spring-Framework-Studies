@@ -117,5 +117,22 @@ public class GlobalResponseEntityExceptionHandler extends ResponseEntityExceptio
 }
 ```
 
+## Using MessageSourcer to Standardize error Message
+
+```
+// private method of ExceptionHandler to get the messagens defined in the messages.properties file.
+
+private fun getMessageInProperties(ex: Exception) {
+// the Exception's message field has the code message registred in messages.properties
+  messageSource.getMessage(ex.message!!, null, ex.message ?:  "server.error", Locale.getDefault())
+
+}
+
+```
+messageSource.getMessage(ex.message!!, null, ex.message ?: "server.error", Locale.getDefault())
+
+* File **messages.properties**:
+
+
 ## References
 [Stack Abuse - Exception Handling in Spring ](https://stackabuse.com/exception-handling-in-spring/)
