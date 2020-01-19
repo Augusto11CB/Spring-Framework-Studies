@@ -119,7 +119,7 @@ public class GlobalResponseEntityExceptionHandler extends ResponseEntityExceptio
 
 ## Using MessageSourcer to Standardize error Message
 
-```
+``` kotlin 
 // private method of ExceptionHandler to get the messagens defined in the messages.properties file.
 
 private fun getMessageInProperties(ex: Exception) {
