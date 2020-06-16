@@ -3,20 +3,31 @@ package aug.bueno.spring.automated.testing.service;
 import aug.bueno.spring.automated.testing.model.Room;
 import aug.bueno.spring.automated.testing.repo.RoomRepo;
 import aug.bueno.spring.automated.testing.service.impl.RoomServiceImpl;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Matchers.anyString;
+import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 public class RoomServiceImplTest {
 
+    private RoomRepo mockRepo;
+
+    private RoomService service;
+
+    @BeforeEach
+    void init() {
+
+        this.mockRepo = mock(RoomRepo.class);
+        this.service = new RoomServiceImpl(this.mockRepo);
+    }
+
     @Test
     public void lookupExistingRoom() {
-        RoomRepo mockRepo = mock(RoomRepo.class);
+
         when(mockRepo.findByRoomNumber(anyString())).thenReturn(new Room());
-        RoomService service = new RoomServiceImpl(mockRepo);
 
         Room room = service.findByRoomNumber("100");
 
@@ -25,9 +36,9 @@ public class RoomServiceImplTest {
 
     @Test
     public void throwExceptionForNonExistingRoom() {
-        RoomRepo mockRepo = mock(RoomRepo.class);
+
         when(mockRepo.findByRoomNumber(anyString())).thenReturn(null);
-        RoomService service = new RoomServiceImpl(mockRepo);
+
         try {
             service.findByRoomNumber("100");
             fail("Exception should had been thrown");
@@ -38,8 +49,9 @@ public class RoomServiceImplTest {
 
     @Test
     public void throwExceptionInvalidRoomNumberFormat() {
-        RoomRepo mockRepo = mock(RoomRepo.class);
+
         RoomService service = new RoomServiceImpl(mockRepo);
+
         try {
             service.findByRoomNumber("BAD ROOM NUMBER!");
             fail("Exception should had been thrown");
@@ -50,8 +62,7 @@ public class RoomServiceImplTest {
 
     @Test
     public void throwExceptionInvalidRoomNumberNull() {
-        RoomRepo mockRepo = mock(RoomRepo.class);
-        RoomService service = new RoomServiceImpl(mockRepo);
+
         try {
             service.findByRoomNumber(null);
             fail("Exception should had been thrown");
