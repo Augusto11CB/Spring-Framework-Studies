@@ -38,3 +38,9 @@ Used to verify the interaction with a dependency
 - Fake
 Used to simulate business behavior
 
+## System Integration Testing
+- Used to validate contracts
+- Used to testing specific failure scenarios
+[https://phauer.com/2019/modern-best-practices-testing-java/](https://phauer.com/2019/modern-best-practices-testing-java/)
+[focus-integration-tests-mock-based-tests/](https://phauer.com/2019/focus-integration-tests-mock-based-tests/)
+[https://phauer.com/2016/testing-restful-services-java-best-practices/](https://phauer.com/2016/testing-restful-services-java-best-practices/)
