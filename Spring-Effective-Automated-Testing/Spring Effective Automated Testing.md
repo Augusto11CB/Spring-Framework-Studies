@@ -41,6 +41,15 @@ Used to simulate business behavior
 ## System Integration Testing
 - Used to validate contracts
 - Used to testing specific failure scenarios
+
 [https://phauer.com/2019/modern-best-practices-testing-java/](https://phauer.com/2019/modern-best-practices-testing-java/)
+
 [focus-integration-tests-mock-based-tests/](https://phauer.com/2019/focus-integration-tests-mock-based-tests/)
+
 [https://phauer.com/2016/testing-restful-services-java-best-practices/](https://phauer.com/2016/testing-restful-services-java-best-practices/)
+
+[https://rmannibucau.metawerx.net/post/testcontainers-customized-image](https://rmannibucau.metawerx.net/post/testcontainers-customized-image)
+
+[http://softwaretestingfundamentals.com/integration-testing/#:~:text=INTEGRATION%20TESTING%20is%20a%20level,Definition%20by%20ISTQB](http://softwaretestingfundamentals.com/integration-testing/#:~:text=INTEGRATION%20TESTING%20is%20a%20level,Definition%20by%20ISTQB)
+
+[https://sivalabs.in/2019/10/spring-boot-testing/](https://sivalabs.in/2019/10/spring-boot-testing/)
