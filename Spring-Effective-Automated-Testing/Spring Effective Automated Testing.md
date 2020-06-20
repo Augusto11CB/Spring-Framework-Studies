@@ -21,6 +21,8 @@
 
 - Unit tests only verify a single scenario
 
+**PS: **`@RunWith` no longer exists; superseded by `@ExtendWith`.
+
 ## Mocks - Types Overview
 
 - Dummy mock
@@ -37,6 +39,21 @@ Used to verify the interaction with a dependency
 
 - Fake
 Used to simulate business behavior
+
+## Component Integration Test
+ares tests that focus on how the application interacts with the libraries it depends upon, as well as testing of cross-cutting concerns (such as logging and security). 
+
+In order to proceed with the component tests maybe there is the necessity to partially or totally initialize the application.
+
+### Goals of Component Integration Test
+**Usecase:** Libraries can be updated, to make sure that nothing stopped working after the update Component Integration plays a key role in the application heathy after scenarios like this.
+**Usecase:** Test features of cross-cutting concerns such as logging. How to validate if the aspect that was created to log information in both start and end of a method keeps running as expected? Answer: Validate with Component Integration Test.
+
+### RESTful Testing with MockMvc
+**MockMVC** class is part of Spring MVC test framework which helps in testing the controllers explicitly starting a Servlet container. With MockMvc, . is possible to test a fully functional REST controller but without the overhead of deploying the app to a container.
+
+MockMVC stands up controller, sends requests and then expects for a response 
+
 
 ## System Integration Testing
 - Used to validate contracts
