@@ -64,3 +64,12 @@ Used to simulate business behavior
 ![https://github.com/syntelmagnum/JavaProject/blob/1167932ee9c18f3c41ccfda6afd0e25e962e1e07/core/src/test/java/org/testcontainers/junit/DockerfileTest.java](https://github.com/syntelmagnum/JavaProject/blob/1167932ee9c18f3c41ccfda6afd0e25e962e1e07/core/src/test/java/org/testcontainers/junit/DockerfileTest.java)
 
 [https://decode.agency/painless-spring-boot-integration-testing-testcontainers/](https://decode.agency/painless-spring-boot-integration-testing-testcontainers/)
+
+
+
+
+[MockServerContainer and MockServerClient - github example](https://github.com/kiview/java-container-lab-bookstore/blob/0e2bab92ba2ddec5403f8809a9a1ee33b638d1ee/src/test/java/com/bee42/javalab/bookstore/BookInventoryRepositoryTest.java)
+
+[nice test](https://github.com/tzolov/twitter2/blob/83aa1f2f3afd51caeeadb3e78e7884fa71f5ba18/spring-cloud-starter-stream-processor-twitter-search/src/test/java/org/springframework/cloud/stream/app/twitter/search/processor/TwitterSearchProcessorIntegrationTests.java)
+
+[ApplicationContainer](https://github.com/NimG98/draft-guide-reactive-messaging-connector/blob/221903cfb4594e743a413c84906e513ac8976f78/finish/openLibertyCafe/src/test/java/it/io/openliberty/guides/openlibertycafe/AppContainerConfig.java)
