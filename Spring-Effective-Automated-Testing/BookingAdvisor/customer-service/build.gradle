@@ -1,0 +1,13 @@
+apply plugin: 'org.springframework.boot'
+
+dependencies {
+
+    developmentOnly 'org.springframework.boot:spring-boot-devtools'
+
+    implementation 'commons-io:commons-io:2.3'
+    implementation 'org.springframework.boot:spring-boot-starter-security'
+    implementation 'org.apache.commons:commons-lang3:3.4'
+
+    testImplementation'org.springframework.security:spring-security-test'
+
+}

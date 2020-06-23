@@ -1,0 +1,14 @@
+apply plugin: 'application'
+apply plugin: 'org.springframework.boot'
+
+mainClassName = 'aug.bueno.spring.automated.testing.testing.SpringEffectiveAutomatedTestingApplication'
+
+dependencies {
+
+    developmentOnly 'org.springframework.boot:spring-boot-devtools'
+
+}
+
+jar {
+    enabled = true
+}
