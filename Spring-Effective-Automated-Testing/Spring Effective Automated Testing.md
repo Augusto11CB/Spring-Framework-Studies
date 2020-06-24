@@ -52,7 +52,15 @@ In order to proceed with the component tests maybe there is the necessity to par
 ### RESTful Testing with MockMvc
 **MockMVC** class is part of Spring MVC test framework which helps in testing the controllers explicitly starting a Servlet container. With MockMvc, . is possible to test a fully functional REST controller but without the overhead of deploying the app to a container.
 
-MockMVC stands up controller, sends requests and then expects for a response 
+MockMVC stands up controller, sends requests and then expects for a response
+
+### Validating DB Iteractions
+
+### Validating External Libs - Jackson
+
+### Validanting Configuration - SpringSecurity 
+
+### Validating Cross-Cutting Features - Logging
 
 
 ## System Integration Testing
