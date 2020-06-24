@@ -54,6 +54,6 @@ public class TestCustomerControllerSecurity {
 	@Test
 	public void testFindAllCustomersWithValidUser() throws Exception {
 		mockMvc.perform(get("/customers").with(user("bojack")
-				.password("abc123").roles("ADMIN"))).andExpect(status().isOk());
+				.password("abc1111123").roles("ADMIN"))).andExpect(status().isOk());
 	}
 }

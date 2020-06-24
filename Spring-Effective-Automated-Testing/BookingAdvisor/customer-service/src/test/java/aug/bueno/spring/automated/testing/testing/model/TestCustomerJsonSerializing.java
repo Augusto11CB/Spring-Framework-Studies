@@ -6,8 +6,12 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.OffsetDateTime;
 
+import com.fasterxml.jackson.databind.exc.MismatchedInputException;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestInstance;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.boot.test.json.JacksonTester;
 
 import com.fasterxml.jackson.databind.JsonMappingException;
@@ -16,6 +20,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.fail;
 
+@TestInstance(TestInstance.Lifecycle.PER_CLASS)
+@ExtendWith({MockitoExtension.class})
 public class TestCustomerJsonSerializing {
 
 	private JacksonTester<Customer> json;
@@ -44,7 +50,7 @@ public class TestCustomerJsonSerializing {
 		Customer customer = new Customer.CustomerBuilder().firstName("John").lastName("Doe").middleName("Middle")
 				.suffix("Jr.").id(0L).dateOfLastStay(df.parse("2017-09-12T00:00:00.000Z")).build();
 
-		this.json.write(customer).assertThat().isEqualTo(jsonValidFullCustomer);
+		this.json.write(customer).getJson().equals(jsonValidFullCustomer);
 	}
 
 	@Test
@@ -53,7 +59,7 @@ public class TestCustomerJsonSerializing {
 			this.json.parse(jsonMissingFirstNameCustomer);
 			fail("Exception should had been thrown!");
 		} catch (Exception e) {
-			assertEquals(JsonMappingException.class, e.getClass());
+			assertEquals(MismatchedInputException.class, e.getClass());
 		}
 	}
 

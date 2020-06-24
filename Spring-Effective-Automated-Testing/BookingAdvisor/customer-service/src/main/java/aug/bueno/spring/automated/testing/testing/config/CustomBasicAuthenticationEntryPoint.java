@@ -11,21 +11,22 @@ import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.authentication.www.BasicAuthenticationEntryPoint;
 
 public class CustomBasicAuthenticationEntryPoint extends BasicAuthenticationEntryPoint {
-	 
+
     @Override
-    public void commence(final HttpServletRequest request, 
-            final HttpServletResponse response, 
-            final AuthenticationException authException) throws IOException, ServletException {
+    public void commence(
+            final HttpServletRequest request,
+            final HttpServletResponse response,
+            final AuthenticationException authException) throws IOException {
         //Authentication failed, send error response.
         response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
         response.addHeader("WWW-Authenticate", "Basic realm=" + getRealmName() + "");
-         
+
         PrintWriter writer = response.getWriter();
         writer.println("HTTP Status 401 : " + authException.getMessage());
     }
-     
+
     @Override
-    public void afterPropertiesSet() throws Exception {
+    public void afterPropertiesSet() {
         setRealmName("MY_TEST_REALM");
         super.afterPropertiesSet();
     }

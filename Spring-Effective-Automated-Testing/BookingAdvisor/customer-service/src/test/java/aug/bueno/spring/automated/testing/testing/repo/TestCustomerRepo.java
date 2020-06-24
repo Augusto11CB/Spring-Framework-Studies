@@ -16,11 +16,14 @@ import static org.junit.jupiter.api.Assertions.*;
 @ExtendWith(SpringExtension.class)
 @DataJpaTest
 public class TestCustomerRepo {
-    @Autowired
-    private TestEntityManager entityManager;
 
     @Autowired
-    private CustomerRepo repo;
+    private TestEntityManager entityManager; // --> Entity manager perform db operations
+
+    @Autowired
+    private CustomerRepo repo; // Original repo will be used to perform integration tests against the db modified by the entityManager
+
+
     private Customer bojack;
     private Customer todd;
     private Customer princess;
