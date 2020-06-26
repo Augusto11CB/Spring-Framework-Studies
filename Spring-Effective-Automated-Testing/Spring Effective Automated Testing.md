@@ -52,12 +52,38 @@ In order to proceed with the component tests maybe there is the necessity to par
 ### RESTful Testing with MockMvc
 **MockMVC** class is part of Spring MVC test framework which helps in testing the controllers explicitly starting a Servlet container. With MockMvc, . is possible to test a fully functional REST controller but without the overhead of deploying the app to a container.
 
-MockMVC stands up controller, sends requests and then expects for a response 
+MockMVC stands up controller, sends requests and then expects for a response.
+
+### Validating DB Iteractions
+
+### Validating External Libs - Jackson
+When Upgrading libs and you want to make sure that nothing is going to brake, is useful to design a set of compoenet integraion test. Spring provides a handy feature called `org.springframework.boot.test.json.JacksonTester` which provides convenient shorthand for marshalling and unmarshalling JSON.
+
+### Validanting Configuration - SpringSecurity 
+
+### Validating Cross-Cutting Features - Logging
 
 
 ## System Integration Testing
-- Used to validate contracts
-- Used to testing specific failure scenarios
+**Major goes of System Integration Test**
+- Verify Correctness
+- Document Behavior 
+- Detect Regression
+- **Used to validate contracts**
+	- validate endpoints/addresses
+	- validate shapes
+	- validate security requirements
+- **Used to testing specific failure scenarios**
+
+### TestContainers 
+TestContainers is a library for easily use docker containers directly in Junit test. TestContainers make use of Junit `rules`to wire up and incorporate docker containers within Junit test.
+
+`org.testcontainers:testcontainers:{testcontainerVersion}`
+
+Testcontainers make the following kinds of tests easier:
+- **Data access layer integration tests**
+- **Application integration tests**: for running your application in a short-lived test mode with dependencies, such as databases, message queues or web servers.
+- **UI/Acceptance tests**: use containerized web browsers, compatible with Selenium, for conducting automated UI tests.
 
 [https://phauer.com/2019/modern-best-practices-testing-java/](https://phauer.com/2019/modern-best-practices-testing-java/)
 
