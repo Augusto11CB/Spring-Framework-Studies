@@ -75,6 +75,15 @@ When Upgrading libs and you want to make sure that nothing is going to brake, is
 	- validate security requirements
 - **Used to testing specific failure scenarios**
 
+### TestContainers 
+TestContainers is a library for easily use docker containers directly in Junit test. TestContainers make use of Junit `rules`to wire up and incorporate docker containers within Junit test.
+
+`org.testcontainers:testcontainers:{testcontainerVersion}`
+
+Testcontainers make the following kinds of tests easier:
+- **Data access layer integration tests**
+- **Application integration tests**: for running your application in a short-lived test mode with dependencies, such as databases, message queues or web servers.
+- **UI/Acceptance tests**: use containerized web browsers, compatible with Selenium, for conducting automated UI tests.
 
 [https://phauer.com/2019/modern-best-practices-testing-java/](https://phauer.com/2019/modern-best-practices-testing-java/)
 
