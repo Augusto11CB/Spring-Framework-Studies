@@ -1,5 +1,5 @@
 
-# Exception Handling in Spring - Best Practices
+# Exception Handling Best Practices
 
 ## Summary
 * Contextualisation and Problematic Case
