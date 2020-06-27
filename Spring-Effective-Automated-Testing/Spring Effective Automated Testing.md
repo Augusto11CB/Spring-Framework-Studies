@@ -31,7 +31,7 @@
 
 - Unit tests only verify a single scenario
 
-**PS: **`@RunWith` no longer exists; superseded by `@ExtendWith`.
+**PS:** `@RunWith` no longer exists; superseded by `@ExtendWith`.
 
 ## Mocks - Types Overview
 
