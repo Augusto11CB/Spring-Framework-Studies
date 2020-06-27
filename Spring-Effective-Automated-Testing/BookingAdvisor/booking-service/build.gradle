@@ -1,0 +1,15 @@
+apply plugin: 'org.springframework.boot'
+
+dependencies {
+
+    developmentOnly 'org.springframework.boot:spring-boot-devtools'
+
+    implementation 'commons-io:commons-io:2.3'
+    implementation 'org.apache.commons:commons-lang3:3.4'
+
+    testImplementation 'org.testcontainers:testcontainers:1.9.1'
+
+    testImplementation 'org.springframework.cloud:spring-cloud-starter-contract-stub-runner'
+    testImplementation 'org.springframework.cloud:spring-cloud-starter-zipkin'
+    testImplementation 'org.springframework.cloud:spring-cloud-starter-contract-verifier'
+}

@@ -59,7 +59,6 @@ subprojects {
         implementation 'org.springframework.boot:spring-boot-starter-web'
         implementation 'org.springframework.cloud:spring-cloud-starter-openfeign'
 
-
         annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
 
 
