@@ -1,5 +1,0 @@
-rootProject.name = 'BookingAdvisor-Effective-Automated-Testing'
-include 'room-service'
-include 'customer-service'
-include 'booking-service'
-
