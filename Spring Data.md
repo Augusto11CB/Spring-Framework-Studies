@@ -1,5 +1,14 @@
 
 
+## Selecting and Casting Object using EntityManager
+```java
+String sql = "SELECT USER.* FROM USER_ AS USER WHERE ID = ?";
+
+Query query = em.createNativeQuery(sql, User.class);
+query.setParameter(1, id);
+User user = (User) query.getSingleResult();
+```
+
 ## Get Next Value from Sequence with Spring 
 
 ### Using Repository
@@ -27,6 +36,11 @@ EntityManager em;
 Query q = em.createNativeQuery("select seq_name.nextval from dual");
 return (Long)q.getSingleResult();
 ```
+
+
+
+## Concurrency Control
+[https://www.logicbig.com/tutorials/spring-framework/spring-data/pessimistic-locking-and-lock-annotation.html](https://www.logicbig.com/tutorials/spring-framework/spring-data/pessimistic-locking-and-lock-annotation.html)
 
 ## References
 

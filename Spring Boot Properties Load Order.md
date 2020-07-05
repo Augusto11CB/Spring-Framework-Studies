@@ -1,9 +1,4 @@
-
-
-
 # Spring Boot Properties Load Order
-
-154
 
 [](https://stackoverflow.com/posts/25862357/timeline)
 
@@ -18,3 +13,5 @@ When using Spring Boot the properties are loaded in the following order (see  [E
 7.  Application properties packaged inside your jar (application.properties including YAML and profile variants).
 8.  @PropertySource annotations on your @Configuration classes.
 9.  Default properties (specified using SpringApplication.setDefaultProperties).
+
+ 

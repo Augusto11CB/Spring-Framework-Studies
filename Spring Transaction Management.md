@@ -54,6 +54,7 @@ The advantages of using Spring to manage transactions is that it provides a **co
 
 ### Spring Transactions Managers
 ![enter image description here](put%20image)
+
 #### Hibernate TransactionManager
 A uniform API that uses the feature of Hibernate's transactions, while maintaining the advantage of Spring's unified transaction abstractions
 
