@@ -102,6 +102,7 @@ file location: _src/test/resources/datasets/products.yml_
 	    }
 
 	```
+**PS:** All these implementations is located in the project: [Product-Microservice](https://github.com/AugustoCalado/Bueno-Eletronics-Ecommerce/tree/master/Product-Microservice)
 
 ## 	Testing MongoDB Repository
 - @DataMongoTest: Loads an embedded MongoDB instance
