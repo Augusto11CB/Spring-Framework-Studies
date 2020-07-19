@@ -20,6 +20,88 @@ MockMVC stands up controller, sends requests and then expects for a response.
 @Autowired 
 private MockMvc mockMvc;
 ```
+## DBUnit - Testing Repository Classes 
+DbUnit is a JUnit extension, and a unit testing tool used to **test**  **relational database interactions** in **Java.**
+
+### DBUnit - Configuration
+1. define a **database schema**
+file location: _src/main/resources/schema.sql_
+	```
+	  CREATE TABLE IF NOT EXISTS products (  
+	    id BIGINT NOT NULL AUTO_INCREMENT,  
+	    name VARCHAR(128) NOT NULL,  
+	    quantity INTEGER NOT NULL,  
+	    version INTEGER NOT NULL,  
+	    PRIMARY KEY (id)  
+	);
+	```
+
+2. Defining the Initial Database Contents
+file location: _src/test/resources/datasets/products.yml_
+	```yaml
+	products:  
+	  - id: 1  
+	    name: "P1"  
+	  quantity: 10  
+	    version: 1  
+	  - id: 2  
+	    name: "P2"  
+	  quantity: 5  
+	    version: 2
+	```
+
+3. creating a test config for Initializing the Database Connection and Schema
+	```java
+	@Configuration
+	@Profile("test")
+	public class ProductRepositoryTestConfiguration {
+
+	    @Primary
+	    @Bean
+	    public DataSource dataSource() {
+
+
+	        DriverManagerDataSource dataSource = new DriverManagerDataSource();
+
+	        dataSource.setDriverClassName("org.h2.Driver");
+	        dataSource.setUrl("jdbc:h2:mem:db;DB_CLOSE_DELAY=-1");
+	        dataSource.setUsername("sa");
+	        dataSource.setPassword("");
+
+	        return dataSource;
+	    }
+	}
+	```
+
+4. Writing test class
+- add `DBUnitExtension` class
+- add `connectionHolder` method
+- add annotation `@DataSet` in the test methods to load the content declared there in the DB instance
+	```java
+	@ExtendWith({SpringExtension.class, DBUnitExtension.class})
+	@ActiveProfiles("test")
+	@SpringBootTest
+	public class ProductRepositoryTest {
+
+	    @Autowired
+	    private DataSource dataSource;
+
+	    @Autowired
+	    private ProductRepository repository;
+
+	    public ConnectionHolder getConnectionHolder() throws SQLException {
+	        // RETURNS A FUNCTION THAT RETRIEVES A CONNECTION FROM OUR DATA SOURCE
+	        return () -> dataSource.getConnection();
+	    }
+
+	    @Test
+	    @DataSet("products.yml")
+	    void testFindAll() {
+	        List<Product> products = repository.findAll();
+	        Assertions.assertEquals(2, products.size());
+	    }
+
+	```
 
 ## 	Testing MongoDB Repository
 - @DataMongoTest: Loads an embedded MongoDB instance
@@ -190,6 +272,11 @@ public Optional<InventoryRecord> purchaseProduct(Long id, Integer quantityPurcha
 ```
 
 #### WireMock Config
+**Import WireMock**
+```
+testImplementation "com.github.tomakehurst:wiremock-jre8:2.27.0"
+```
+
 **Externalized WiredMock Response Objects - File Location**
 ```json
 // location where the expected response are stored
