@@ -75,6 +75,9 @@ When Upgrading libs and you want to make sure that nothing is going to brake, is
 
 
 ## System Integration Testing
+> Integration tests determine if independently developed units of software work correctly when they are connected to each other
+>  \- Martin Fowler
+
 **Major goes of System Integration Test**
 - Verify Correctness
 - Document Behavior 
